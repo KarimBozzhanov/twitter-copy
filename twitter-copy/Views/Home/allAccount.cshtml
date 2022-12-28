@@ -1,0 +1,50 @@
+﻿@model IEnumerable<twitter_copy.Models.User>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PostMethod</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="content">
+        <div class="container">
+            <a asp-action="Index" class="btn btn-dark mt-3"><i class="fa-solid fa-arrow-left-long"></i></a>
+            <h1 class="last">Все пользователи</h1>
+            @foreach (var item in Model)
+            {
+                @if (item.Login != "karim_bozzhanov")
+                {
+                    <div class="card border border-0">
+                        <div class="card-body bg-dark rounded mb-2 ">
+                            <div class="user-header">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div class="avatar">
+                                            <p class="letter">A</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-10">
+                                        <div class="username text-bg-dark">
+                                            <h5>@item.Login</h5>
+                                            <p>@item.Password</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a asp-action="editAccount" asp-controller="home" asp-route-id="@item.Id" class="btn btn-light" style="width: 120px">Изменить</a>
+                            <a asp-action="deleteAccount" asp-controller="home" asp-route-id="@item.Id" class="btn btn-light" style="width: 120px; margin-left: 10px">Удалить</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

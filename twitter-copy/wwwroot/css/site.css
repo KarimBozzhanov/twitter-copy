@@ -1,0 +1,88 @@
+﻿body {
+    background-color: #969393;
+}
+
+.header {
+    margin: 10px;
+    padding: 10px 0;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: #ffffff;
+    margin-top: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.menu-item:hover {
+    color: #cbc6c6;
+}
+
+.menu-list h3 {
+    color: #ffffff;
+}
+
+.content {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding-bottom: 20px
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #cbc6c6;
+}
+
+.letter {
+    position: relative;
+    left: 18px;
+    top: 12px;
+}
+
+.last {
+    padding-top: 20px;
+    margin-left: 3px;
+    margin-bottom: 20px;
+}
+
+.username p {
+    font-size: 12px;
+}
+
+.user-content p {
+    font-size: 12px;
+}
+
+.fixed-button {
+    z-index: 99;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #2c2a2a;
+    color: #ffffff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+}
+
+.fixed-button i {
+    position:relative;
+    top: 12px;
+    left: 17px;
+}
+
+.fixed-button:hover {
+    transform: scale(1.1);
+    color: #ffffff;
+}
+
+.line-limit-length {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

@@ -1,0 +1,55 @@
+﻿@model twitter_copy.Models.AddPosts;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PostMethod</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    @if (User.Identity.Name != null)
+    {
+        <a asp-action="Create" class="fixed-button"><i class="fa-solid fa-plus"></i></a>
+    }
+
+    <div class="content">
+        <div class="container">
+            <a asp-action="Index" class="btn btn-dark mt-3"><i class="fa-solid fa-arrow-left-long"></i></a>
+            <h4 class="last">Пост пользователя @Model.UserName</h4>
+            <div class="card border border-0">
+                    <div class="card-body bg-dark rounded mb-2">
+                        <div class="user-header">
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="avatar">
+                                        <p class="letter">A</p>
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <div class="username text-bg-dark">
+                                        <h4>@Model.UserName</h4>
+                                        <p>@Model.TimeOfCreating</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-content text-bg-dark">
+                            <p>@Model.postText</p>
+                        </div>
+                    @if ((User.Identity.Name == Model.UserName) || (User.Identity.Name == "karim_bozzhanov"))
+                    {
+                        <a asp-action="editPost" asp-controller="home" asp-route-id="@Model.Id" class="btn btn-light" style="width: 120px">Изменить</a>
+                        <a asp-action="postDelete" asp-controller="home" asp-route-id="@Model.Id" class="btn btn-light" style="width: 120px; margin-left: 10px">Удалить</a>
+                    }
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
